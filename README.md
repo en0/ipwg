@@ -56,6 +56,10 @@ python -m venv test_venv &&
 
 # You should now be able to test your changes
 ipwg -h
+
+# Cleanup the test environment
+deactivate
+rm -rf ./test_venv
 ```
 
 If everything looks good above, publish to pypi
