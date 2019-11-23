@@ -11,10 +11,10 @@ tests:
 	@python -m unittest
 
 publish: build
-	@twine upload dist/*
+	@twine upload --skip-existing dist/*
 
 publish-test: build
-	@twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+	@twine upload --skip-existing --repository-url https://test.pypi.org/legacy/ dist/*
 
 build:
 	@python setup.py sdist bdist_wheel

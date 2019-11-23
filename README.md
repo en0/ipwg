@@ -38,3 +38,28 @@ generator.specials_count = 1
 # at least 1 of !@#$
 pwd = generator.create_password(10)
 ```
+
+## To publish
+
+After changes are complete and unit tests are added,
+run the following commands to verify the new package.
+Note: You will need `twine` and `wheel` installed.
+
+```bash
+# Test publish to pypi test site
+make tests && make publish-test
+
+# Create a new python env and install from test
+python -m venv test_venv &&
+    source ./test_venv/bin/activate &&
+    pip install -i https://test.pypi.org/simple/ ipwg
+
+# You should now be able to test your changes
+ipwg -h
+```
+
+If everything looks good above, publish to pypi
+
+```bash
+make publish
+```
